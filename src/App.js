@@ -1,13 +1,10 @@
 import React from 'react'
-import UsersTable from './components/UsersTable'
-import UserForm from './UserForm'
-
+import Home from './Home'
 
 function App() {
   return (
     <div className="App">
-      <UsersTable />
-      <UserForm />
+      <Home />
     </div>
   );
 }

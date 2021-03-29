@@ -1,0 +1,21 @@
+.home-container {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;  
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightseagreen;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    float: left;
+    margin-top: 20px;
+}
+
