@@ -3,13 +3,15 @@ import * as ReactBootstrap from 'react-bootstrap'
 
 import './UserForm.css';
 
-const UserForm = () => {
-    const [formData, setFormData] = useState({
-        name: "",
-        username: "",
-        street: "",
-        city: ""
-    });
+const initFormData = {
+    name: "",
+    username: "",
+    email: "",
+}
+
+const UserForm = ({ addNewEntry }) => {
+    const [formData, setFormData] = useState(initFormData);
+    const [isSubmitted, setIsSubmitted] = useState(false)
 
     const updateFormData = event =>
         setFormData({
@@ -17,12 +19,20 @@ const UserForm = () => {
             [event.target.name]: event.target.value
         });
 
-    const { name, username, street, city } = formData;
+    const onSubmit = (event) => {
+        event.preventDefault()
+        setIsSubmitted(true)
+        addNewEntry(formData)
+        setFormData(initFormData)
+    }
+
+    const { name, username, email } = formData;
 
     return (
         <div className='form'>
             <h3 className='form-title'>User Detail Form</h3>
-            <form>
+            {isSubmitted}
+            <form onSubmit={onSubmit}>
                 <input
                     value={name}
                     onChange={e => updateFormData(e)}
@@ -40,21 +50,19 @@ const UserForm = () => {
                     required
                 />
                 <input
-                    value={street}
+                    value={email}
                     onChange={e => updateFormData(e)}
-                    placeholder="Street"
+                    placeholder="Email"
                     type="text"
-                    name="street"
+                    name="email"
                 />
                 <input
-                    value={city}
-                    onChange={e => updateFormData(e)}
-                    placeholder="City"
-                    type="text"
-                    name="city"
+                    type='submit'
+                    value='submit'
+                    className='submit-btn'
                 />
             </form>
-            <ReactBootstrap.Button variant='success' type='submit'>Save</ReactBootstrap.Button>
+            {/* <ReactBootstrap.Button variant='success' type='submit'>Save</ReactBootstrap.Button> */}
         </div>
     );
 };

@@ -3,9 +3,9 @@ import './Home.css'
 import * as ReactBootstrap from 'react-bootstrap'
 
 import UsersTable from './UsersTable'
-import UserForm from './UserForm'
 
 function Home() {
+
     return (
         <div className='home-container'>
             <div className="home-header">
@@ -33,7 +33,6 @@ function Home() {
                 </div>
             </div>
             <UsersTable />
-            <UserForm />
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import UserForm from './UserForm'
 import axios from 'axios'
 import './UsersTable.css'
 
@@ -7,6 +8,7 @@ import * as ReactBootstrap from 'react-bootstrap'
 
 function UsersTable() {
     const [userList, setUserList] = useState([])
+    const [isFormOpen, setIsFormOpen] = useState(false)
 
     useEffect(() => {
         axios.get('https://jsonplaceholder.typicode.com/users').then((res) => {
@@ -35,13 +37,22 @@ function UsersTable() {
         )
     }
 
+    const openForm = () => {
+        setIsFormOpen(!isFormOpen)
+    }
+
+    const addNewEntry = (formData) => {
+        console.log(formData);
+        console.log(userList)
+        setUserList([...userList, formData])
+    }
+
     return (
         <div className='table-container'>
             <div className="table-header">
                 <h4 className='table-title'>Users</h4>
-                <ReactBootstrap.Button variant="outline-primary">New</ReactBootstrap.Button>
+                <ReactBootstrap.Button variant="outline-primary" onClick={openForm} >New</ReactBootstrap.Button>
             </div>
-
             <ReactBootstrap.Table size='sm' striped bordered hover>
                 <thead>
                     <tr>
@@ -54,6 +65,8 @@ function UsersTable() {
                     {userList.map(renderUsers)}
                 </tbody>
             </ReactBootstrap.Table>
+            {isFormOpen && <UserForm addNewEntry={addNewEntry} />}
+
         </div>
     )
 }
