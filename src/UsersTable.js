@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import UserForm from './UserForm'
+import { URL } from './Constants'
 import axios from 'axios'
 import './UsersTable.css'
 
@@ -11,9 +12,8 @@ function UsersTable() {
     const [isFormOpen, setIsFormOpen] = useState(false)
 
     useEffect(() => {
-        axios.get('https://jsonplaceholder.typicode.com/users').then((res) => {
+        axios.get(URL).then((res) => {
             let result = res.data
-            // console.log(result);
             if (result) {
                 let final = result.map((user) => {
                     let obj = {}
