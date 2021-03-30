@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Home.css'
 import * as ReactBootstrap from 'react-bootstrap'
 
 import UsersTable from './UsersTable'
 
 function Home() {
+
+    const [show, setShow] = useState(false)
 
     return (
         <div className='home-container'>
@@ -24,15 +26,9 @@ function Home() {
                     </ReactBootstrap.Dropdown>
                 </div>
             </div>
-            <div className="links">
-                <div className='home-link'>
-                    <a href='/home'>Home</a>
-                </div>
-                <div className='users-link'>
-                    <a href='/users'>Users</a>
-                </div>
-            </div>
-            <UsersTable />
+            {show ? <UsersTable /> : null}
+            <a className="users-btn" onClick={() => setShow(!show)}>Users</a>
+
         </div>
     )
 }

@@ -12,10 +12,8 @@
     border-bottom: 1px solid lightseagreen;
 }
 
-.links {
-    display: flex;
-    flex-direction: column;
+ .users-btn {
     float: left;
-    margin-top: 20px;
+    width: 80px;
+    height: 80px;
 }
-

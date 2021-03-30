@@ -52,6 +52,7 @@ button:hover {
  .submit-btn {
   background-color:#4CAF50;
   border-radius: 5px;
+  border: none;
   float: right;
   margin-top: 10px;
   color: #fff;
