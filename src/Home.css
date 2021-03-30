@@ -1,0 +1,19 @@
+.home-container {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;  
+}
+
+.home-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid lightseagreen;
+}
+
+ .users-btn {
+    float: left;
+    width: 80px;
+    height: 80px;
+}
