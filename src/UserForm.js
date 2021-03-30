@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import * as ReactBootstrap from 'react-bootstrap'
 
 import './UserForm.css';
 
@@ -33,36 +32,46 @@ const UserForm = ({ addNewEntry }) => {
             <h3 className='form-title'>User Detail Form</h3>
             {isSubmitted}
             <form onSubmit={onSubmit}>
-                <input
-                    value={name}
-                    onChange={e => updateFormData(e)}
-                    placeholder="Name"
-                    type="text"
-                    name="name"
-                    required
-                />
-                <input
-                    value={username}
-                    onChange={e => updateFormData(e)}
-                    placeholder="Username"
-                    type="text"
-                    name="username"
-                    required
-                />
-                <input
-                    value={email}
-                    onChange={e => updateFormData(e)}
-                    placeholder="Email"
-                    type="text"
-                    name="email"
-                />
-                <input
-                    type='submit'
-                    value='submit'
-                    className='submit-btn'
-                />
+                <div>
+                    <input
+                        value={name}
+                        onChange={e => updateFormData(e)}
+                        placeholder="Name"
+                        type="text"
+                        name="name"
+                        className='form-input'
+                        required
+                    />
+                </div>
+                <div>
+                    <input
+                        value={username}
+                        onChange={e => updateFormData(e)}
+                        placeholder="Username"
+                        type="text"
+                        name="username"
+                        className='form-input'
+                        required
+                    />
+                </div>
+                <div>
+                    <input
+                        value={email}
+                        onChange={e => updateFormData(e)}
+                        placeholder="Email"
+                        type="text"
+                        name="email"
+                        className='form-input'
+                    />
+                </div>
+                <div>
+                    <input
+                        type='submit'
+                        value='Save'
+                        className='submit-btn'
+                    />
+                </div>
             </form>
-            {/* <ReactBootstrap.Button variant='success' type='submit'>Save</ReactBootstrap.Button> */}
         </div>
     );
 };
