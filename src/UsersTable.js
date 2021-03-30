@@ -42,8 +42,6 @@ function UsersTable() {
     }
 
     const addNewEntry = (formData) => {
-        console.log(formData);
-        console.log(userList)
         setUserList([...userList, formData])
     }
 
